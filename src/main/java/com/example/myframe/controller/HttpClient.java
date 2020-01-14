@@ -1,7 +1,7 @@
 package com.example.myframe.controller;
 
-import com.example.mybatis.dao.MovieDao;
-import com.example.mybatis.entity.MovieEntity;
+import com.example.myframe.dao.MovieDao;
+import com.example.myframe.entity.MovieEntity;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -12,6 +12,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,13 +25,15 @@ import java.util.List;
 
 @Controller
 public class HttpClient {
+    @Autowired
+    private MovieDao movieDao;
+
     List<MovieEntity> list=new ArrayList<MovieEntity>();
     private static Connection connection;
     private static Connection.Response response;
     @GetMapping(value = "/find")
     public String find(@RequestParam(value="values") String values,
                      HttpServletRequest request) throws Exception {
-     MovieDao movieDao=new MovieDao();
      list=movieDao.get(values);
      if(list.size()==0){
          this.add(values);
@@ -59,7 +62,6 @@ public class HttpClient {
         Elements tables = document.getElementsByTag("table");
         //根据td标签来划分
         Elements td = tables.select("td");
-        MovieDao movieDao=new MovieDao();
         for(int j=0;j<td.size();j++){
             //获取到标签中的内容
             MovieEntity movieEntity=new MovieEntity();
@@ -70,7 +72,7 @@ public class HttpClient {
                 movieEntity.setName(values);
                 movieEntity.setHref(s);
                 movieEntity.setContent(text);
-                movieDao.insert(movieEntity);
+                //movieDao.insert(movieEntity);
                 list.add(movieEntity);
             }
         }

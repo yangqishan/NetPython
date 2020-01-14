@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title></title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <!---<link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>--->
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/plugins/pe-icon-7-stroke/css/pe-icon-7-stroke.css"> 
+    <link rel="stylesheet" href="assets/plugins/animate-css/animate.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="js/vue.js" type="text/javascript"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style8.css"/>
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link href="assets/css/codemirror.css" rel="stylesheet">
+    <script src="assets/js/ace-extra.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/dist/echarts.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+</head> 
+
+<body class="tour-page">    
+    <div class="wrapper">
+        <!-- ******HEADER****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <h1 class="logo pull-left">
+                    <a href="index.html">
+                        <span class="logo-title">杨子网络爬虫</span>
+                    </a>
+                </h1><!--//logo-->
+                <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button><!--//nav-toggle-->
+                    </div><!--//navbar-header-->
+                    <div class="navbar-collapse collapse" id="navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item"><a href="index.html">首页</a></li>
+                            <li class="nav-item"><a href="movie.html">电影</a></li>
+                            <li class="active nav-item"><a href="goodsprice.html">商品</a></li>
+                            <li class="nav-item"><a href="picture.html">图片</a></li>
+                            <li class="nav-item"><a href="blog.html">知乎</a></li>
+                            <li class="nav-item"><a href="new.html">新闻</a></li>
+                            <li class="nav-item"><a href="career.html">职业与薪资</a></li>
+                            <li class="nav-item"><a href="star.html">明星</a></li>
+                            <li class="nav-item"><button type="button" class="login-trigger btn btn-link" data-toggle="modal" data-target="#login-modal">登录</button></li>
+                        </ul><!--//nav-->
+                    </div><!--//navabr-collapse-->
+                </nav><!--//main-nav-->
+            </div><!--//container-->
+        </header><!--//header-->
+        <!-- ******搜索****** -->
+        <br>
+            <div class="container text-center">
+                <form class="signup-form">
+                    <div class="form-group">
+                        <input type="email" id="semail1" name="semail1" class="form-control" placeholder="查询商品的链接">
+                    </div>
+                    <button type="submit" class="btn btn-cta btn-cta-primary">搜索</button>
+                </form>
+                <br>
+                <p class="summary"><span>例如:</span>Sign up to try Tempo FREE for 30 days! No credit card needed.</p>
+            </div>
+
+        <hr>
+        <!-- ******商品价格趋势结果****** -->
+        <div class="page-content clearfix" id="canver" >
+
+            <h2>
+        <span>
+            商品名:{{title}}
+        </span>
+            </h2>
+            <!--实时交易记录-->
+            <div class="clearfix">
+        <span style="color:red">
+        历史最低价：{{min}}
+        </span>
+                <span style="color:red;">
+        历史最高价：{{max}}
+        </span>
+                <div class="t_Record">
+                    <div id="main" style="height:500px; overflow:hidden; width:100%; overflow:auto" ></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function(){
+
+            $(".t_Record").width($(window).width()-50);
+            //当文档窗口发生改变时 触发
+            $(window).resize(function(){
+                $(".t_Record").width($(window).width()-50);
+            });
+        });
+
+        var app=new Vue({
+            el:"#canver",
+            data:{
+                min:'',
+                max:'',
+                title:'',
+                href:'',
+                price:[],
+                times:[]
+            }
+        })
+
+        var app1=new Vue({
+            el:"span",
+            data:{
+                title:''
+            }
+        })
+
+        $("button").click(function () {
+            $.ajax({
+                url:"search",
+                type:"post",
+                dataType:"json",
+                data:{
+                    searchValue:$("#searchValue").val()
+                },
+                success:function (data) {
+                    if(data.msg=='正确'){
+                        app.href=data.href
+                        app.min=data.min
+                        app.max=data.max
+                        app.title=data.title
+                        for(var i=0;i<data.list.length;i++){
+                            app.price[i]=data.list[i].price
+                            app.times[i]=data.list[i].times
+                        }
+
+                        //加载图表
+                        require(
+                            [
+                                'echarts',
+                                'echarts/theme/macarons',
+                                'echarts/chart/line',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
+                                'echarts/chart/bar'
+                            ],
+                            function (ec,theme) {
+                                var myChart = ec.init(document.getElementById('main'),theme);
+                                option = {
+                                    title : {
+                                        text: '历史价格',
+                                    },
+                                    tooltip : {
+                                        trigger: 'axis'
+                                    },
+
+                                    toolbox: {
+                                        show : true,
+                                        feature : {
+                                            mark : {show: true},
+                                            dataView : {show: true, readOnly: false},
+                                            magicType : {show: true, type: ['line', 'bar']},
+                                            restore : {show: true},
+                                            saveAsImage : {show: true}
+                                        }
+                                    },
+                                    calculable : true,
+                                    xAxis : [
+                                        {
+                                            type : 'category',
+                                            data : app.times
+                                        }
+                                    ],
+                                    yAxis : [
+                                        {
+                                            type : 'value'
+                                        }
+                                    ],
+                                    series : [
+                                        {
+                                            name:'价格记录',
+                                            type:'bar',
+                                            data:app.price
+
+
+                                        }
+                                    ]
+                                };
+
+                                myChart.setOption(option);
+                            }
+                        );
+                        $("#canver").slideDown()
+                        app1.title=''
+                    }else{
+                        app1.title=data.msg
+                        $("#span").slideDown()
+                    }
+
+                }
+            })
+
+
+        })
+        require.config({
+            paths: {
+                echarts: './assets/dist'
+            }
+        });
+
+    </script>
+    <!-- ******FOOTER****** -->
+    <div id="foot"></div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#foot").load("foot.html");
+        });
+    </script>
+
+</body>
+</html> 
+
+
