@@ -1,7 +1,6 @@
 package com.example.myframe.aop;
 import com.example.myframe.common.consts.ResultEnum;
 import com.example.myframe.common.redis.RedisUtils;
-import com.example.myframe.common.response.ErrResponse;
 import com.example.myframe.common.response.RestResponse;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -33,7 +32,7 @@ public class ControllerAspect {
     /**
      * 定义切点
      */
-    @Pointcut("execution(public * com.example.myframe.controller.TestController.*(..))")
+    @Pointcut("execution(public * com.example.myframe.controller.DemoController.*(..))")
     public void privilege() {
 
     }

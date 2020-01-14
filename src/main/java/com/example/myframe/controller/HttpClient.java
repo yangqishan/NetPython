@@ -1,7 +1,7 @@
 package com.example.myframe.controller;
 
-import com.example.myframe.dao.MovieDao;
 import com.example.myframe.entity.MovieEntity;
+import com.example.myframe.service.MovieService;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -26,7 +26,7 @@ import java.util.List;
 @Controller
 public class HttpClient {
     @Autowired
-    private MovieDao movieDao;
+    private MovieService movieService;
 
     List<MovieEntity> list=new ArrayList<MovieEntity>();
     private static Connection connection;
@@ -34,7 +34,7 @@ public class HttpClient {
     @GetMapping(value = "/find")
     public String find(@RequestParam(value="values") String values,
                      HttpServletRequest request) throws Exception {
-     list=movieDao.get(values);
+     list=movieService.get(values);
      if(list.size()==0){
          this.add(values);
      }
