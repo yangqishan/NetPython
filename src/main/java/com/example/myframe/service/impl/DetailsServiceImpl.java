@@ -3,36 +3,42 @@ package com.example.myframe.service.impl;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.myframe.dao.DetailsDao;
 import com.example.myframe.dao.MovieDao;
+import com.example.myframe.entity.DetailsBean;
 import com.example.myframe.entity.MovieEntity;
+import com.example.myframe.service.DetailsService;
 import com.example.myframe.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * 详情service层
+ */
 @Service
-public class MovieServiceImpl extends ServiceImpl<MovieDao, MovieEntity> implements MovieService {
+public class DetailsServiceImpl extends ServiceImpl<DetailsDao, DetailsBean> implements DetailsService {
     @Autowired
-    private MovieDao movieDao;
+    private DetailsDao detailsDao;
     @Override
-    public List<MovieEntity> getAll() {
-        return movieDao.getAll();
+    public List<DetailsBean> getAll() {
+        return detailsDao.getAll();
     }
 
     @Override
-    public IPage<MovieEntity> getPage(Page page) {
+    public IPage<DetailsBean> getPage(Page page) {
         return null;
     }
 
     @Override
-    public  List<MovieEntity> get(String name) {
-        return movieDao.get(name);
+    public  DetailsBean get(String name) {
+        return detailsDao.get(name);
     }
 
     @Override
-    public void addList(List<MovieEntity> list) {
-        movieDao.addList(list);
+    public void add(DetailsBean detailsBean) {
+        detailsDao.add(detailsBean);
     }
 
 }

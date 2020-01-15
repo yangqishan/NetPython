@@ -7,14 +7,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@TableName("movie")
+@TableName("details")
 @NoArgsConstructor
 @AllArgsConstructor
-public class MovieEntity extends DateBean{
+public class DetailsBean extends DateBean{
     @TableId
     private int id;
-    private String name;//名字
-    private String href;//下载链接
+    private String name;//名称
     private String content;//内容
-    private int detailsId;//详情表id
+    private String img;//照片绝对路径
+    private String type;//类型
 }

@@ -13,4 +13,5 @@ public interface MovieDao extends BaseMapper<MovieEntity> {
     List<MovieEntity> getAll();
     List<MovieEntity> getPage(String value);
     List<MovieEntity> get(String name);
+    void addList(List<MovieEntity> list);
 }

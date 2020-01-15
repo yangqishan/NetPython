@@ -3,13 +3,33 @@
 <mapper namespace="com.example.myframe.dao.MovieDao">
 
     <select id="getAll" resultType="com.example.myframe.entity.MovieEntity">
-    SELECT
-    *
-    FROM
-	USER
+
     </select>
 	<select id="get" resultType="com.example.myframe.entity.MovieEntity" parameterType="String">
-       SELECT pswd from user where name=#{name}
+    select * from movie where name=#{name}
 	</select>
+
+    <insert id="addList" parameterType="java.util.List">
+        insert into movie
+        (
+         name,
+         href,
+         content,
+         create_date,
+         update_date,
+         details_id
+        )
+        values
+        <foreach collection="list" item="item" index= "index" separator =",">
+            (
+            #{item.name},
+            #{item.href},
+            #{item.content},
+            now(),
+            now(),
+            #{item.detailsId}
+            )
+        </foreach>
+    </insert>
 </mapper>
 

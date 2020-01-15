@@ -32,7 +32,7 @@ public class ControllerAspect {
     /**
      * 定义切点
      */
-    @Pointcut("execution(public * com.example.myframe.controller.DemoController.*(..))")
+    @Pointcut("execution(public * com.example.myframe.controller.TestController.*(..))")
     public void privilege() {
 
     }

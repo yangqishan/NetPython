@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.myframe.dao.DetailsDao">
+
+    <select id="getAll" resultType="com.example.myframe.entity.DetailsBean">
+    SELECT * FROM details ORDER BY update_date DESC LIMIT 0,10
+    </select>
+
+	<select id="get" resultType="com.example.myframe.entity.DetailsBean" parameterType="String">
+    select * from details where name=#{name}
+	</select>
+    <insert id="add" parameterType="com.example.myframe.entity.DetailsBean">
+        insert into details(name,content,img,create_date,update_date,type) values(#{name},#{content},#{img},now(),now(),#{type})
+    </insert>
+</mapper>
+
