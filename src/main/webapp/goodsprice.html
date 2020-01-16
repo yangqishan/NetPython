@@ -72,19 +72,26 @@
         <!-- ******搜索****** -->
         <br>
             <div class="container text-center">
-                <form class="signup-form">
+                <div class="signup-form">
                     <div class="form-group">
-                        <input type="email" id="semail1" name="semail1" class="form-control" placeholder="查询商品的链接">
+                        <input type="text" id="searchValue" class="form-control" placeholder="查询商品的链接">
                     </div>
                     <button type="submit" class="btn btn-cta btn-cta-primary">搜索</button>
-                </form>
+                </div>
                 <br>
-                <p class="summary"><span>例如:</span>Sign up to try Tempo FREE for 30 days! No credit card needed.</p>
+                <p>使用说明：在上方的输入框里输入商品的网址或商品口令查询历史价格</P>
+                <p class="summary"><span>例如:</span>https://detail.tmall.com/item.htm?id=527080261251</p>
+                <p class="summary"><span>例如:</span>https://detail.tmall.hk/hk/item.htm?tbpm=1&spm=a230r.1.14.1.7a5bce6awJkPMn&id=547413488856&cm_id=140105335569ed55e27b&abbucket=17</p>
             </div>
 
         <hr>
         <!-- ******商品价格趋势结果****** -->
-        <div class="page-content clearfix" id="canver" >
+        <h2>
+        <span style="color: red" hidden id="span">
+        {{title}}
+        </span>
+        </h2>
+        <div class="page-content clearfix" hidden id="canver" >
 
             <h2>
         <span>
@@ -100,7 +107,7 @@
         历史最高价：{{max}}
         </span>
                 <div class="t_Record">
-                    <div id="main" style="height:500px; overflow:hidden; width:100%; overflow:auto" ></div>
+                    <div id="main"  style="height:500px; overflow:hidden; width:100%; overflow:auto" ></div>
                 </div>
 
             </div>
@@ -133,7 +140,7 @@
         })
 
         var app1=new Vue({
-            el:"span",
+            el:"#span",
             data:{
                 title:''
             }
@@ -141,21 +148,21 @@
 
         $("button").click(function () {
             $.ajax({
-                url:"search",
+                url:"goods/search",
                 type:"post",
                 dataType:"json",
                 data:{
                     searchValue:$("#searchValue").val()
                 },
                 success:function (data) {
-                    if(data.msg=='正确'){
-                        app.href=data.href
-                        app.min=data.min
-                        app.max=data.max
-                        app.title=data.title
-                        for(var i=0;i<data.list.length;i++){
-                            app.price[i]=data.list[i].price
-                            app.times[i]=data.list[i].times
+                    if(data.data.msg=='正确'){
+                        app.href=data.data.href
+                        app.min=data.data.min
+                        app.max=data.data.max
+                        app.title=data.data.title
+                        for(var i=0;i<data.data.list.length;i++){
+                            app.price[i]=data.data.list[i].price
+                            app.times[i]=data.data.list[i].times
                         }
 
                         //加载图表
@@ -215,7 +222,7 @@
                         $("#canver").slideDown()
                         app1.title=''
                     }else{
-                        app1.title=data.msg
+                        app1.title=data.data.msg
                         $("#span").slideDown()
                     }
 

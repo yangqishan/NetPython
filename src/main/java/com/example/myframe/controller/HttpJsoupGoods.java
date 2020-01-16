@@ -1,6 +1,8 @@
 package com.example.myframe.controller;
 
 
+import com.example.myframe.common.consts.ResultEnum;
+import com.example.myframe.common.response.RestResponse;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -14,13 +16,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @RestController
-public class HttpClientJsoup {
+@RequestMapping("/goods")
+public class HttpJsoupGoods {
 
     private static Connection connection;
     private static Connection.Response response;
     @RequestMapping(value="/search")
-    public  Map<String, Object> find(@RequestParam(value="searchValue") String searchValue,
-                              HttpServletRequest request) throws Exception{
+    public RestResponse find(@RequestParam(value="searchValue") String searchValue,
+                                                 HttpServletRequest request) throws Exception{
         Map<String,Object> map=new HashMap<String, Object>();
         String con=searchValue;
         searchValue=searchValue.replace(":","%3A");
@@ -33,7 +36,7 @@ public class HttpClientJsoup {
         if(!(con.contains("detail.tmall")||con.contains("jd"))){
             map.put("msg","网址有误重新输入");
             map.put("href","null");
-            return map;
+            return new RestResponse(ResultEnum.SUCCESS,map);
         }
         String url="http://www.hisprice.cn/his.php?hisurl="+searchValue;
         //获取checkCodeId
@@ -107,7 +110,7 @@ public class HttpClientJsoup {
         map.put("max",max);
         map.put("title",title);
         map.put("list",list);
-        return map;
+        return new RestResponse(ResultEnum.SUCCESS,map);
     }
 
     public static Document getPage(String url) throws Exception {
