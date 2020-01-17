@@ -6,7 +6,32 @@
 
     </select>
 	<select id="get" resultType="com.example.myframe.entity.StarBean" parameterType="String">
-
+       select * from star where name=#{name}
 	</select>
+
+    <insert id="addList" parameterType="java.util.List">
+        insert into star
+        (
+        name,
+        title,
+        content,
+        create_date,
+        update_date,
+        details_id,
+        type
+        )
+        values
+        <foreach collection="list" item="item" index= "index" separator =",">
+            (
+            #{item.name},
+            #{item.title},
+            #{item.content},
+            now(),
+            now(),
+            #{item.detailsId},
+            #{item.type}
+            )
+        </foreach>
+    </insert>
 </mapper>
 

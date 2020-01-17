@@ -17,8 +17,6 @@ import java.util.List;
 public interface DetailsDao extends BaseMapper<DetailsBean> {
     //获取全部
     List<DetailsBean> getAll();
-    //分页查询
-    List<DetailsBean> getPage(String value);
     DetailsBean get(String name);
     void add(DetailsBean detailsBean);
 }

@@ -14,7 +14,7 @@ public class DetailsBean extends DateBean{
     @TableId
     private int id;
     private String name;//名称
-    private String content;//内容
+    private String content;//内容（基本信息）
     private String img;//照片绝对路径
     private String type;//类型
 }

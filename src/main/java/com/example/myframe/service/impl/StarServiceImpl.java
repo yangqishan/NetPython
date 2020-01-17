@@ -22,11 +22,17 @@ public class StarServiceImpl extends ServiceImpl<StarDao, StarBean> implements S
 
     @Override
     public IPage<StarBean> getPage(Page page) {
-        return starDao.getPage(page);
+        return null;
+    }
+
+
+    @Override
+    public List<StarBean> get(String name) {
+        return starDao.get(name);
     }
 
     @Override
-    public StarBean get(String name) {
-        return starDao.get(name);
+    public void addList(List<StarBean> list) {
+        starDao.addList(list);
     }
 }

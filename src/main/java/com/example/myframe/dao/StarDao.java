@@ -14,14 +14,11 @@ import java.util.List;
 public interface StarDao extends BaseMapper<StarBean> {
 
     List<StarBean> getAll();
-    /**
-     * 分页查询
-     * @param page
-     * @return
-     */
-    IPage<StarBean> getPage(Page page);
-    StarBean get(String name);
 
+
+    List<StarBean> get(String name);
+
+    void addList(List<StarBean> list);
 }
 
 

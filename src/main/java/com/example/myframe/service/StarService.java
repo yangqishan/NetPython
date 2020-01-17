@@ -17,5 +17,6 @@ public interface StarService extends IService<StarBean> {
      */
     IPage<StarBean> getPage(Page page);
 
-    StarBean get(String name);
+    List<StarBean> get(String name);
+    void addList(List<StarBean> list);
 }
