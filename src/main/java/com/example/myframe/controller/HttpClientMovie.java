@@ -99,6 +99,7 @@ public class HttpClientMovie {
         String content=document.getElementById("text").select("p").get(0).text();
         content+=document.getElementById("text").select("p").get(2).text();
         detailsBean.setContent(content);
+        detailsBean.setType("movie");
         //增加详情到数据库
         detailsService.add(detailsBean);
         //根据class获取到 页面的 元素内容

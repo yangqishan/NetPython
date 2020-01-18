@@ -9,7 +9,7 @@ import com.example.myframe.entity.MovieEntity;
 import java.util.List;
 
 public interface DetailsService extends IService<DetailsBean> {
-    List<DetailsBean> getAll();
+    List<DetailsBean> getAll(String type);
     /**
      * 分页查询
      * @param page

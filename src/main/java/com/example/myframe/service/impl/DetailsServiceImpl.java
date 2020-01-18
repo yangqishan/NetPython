@@ -22,8 +22,8 @@ public class DetailsServiceImpl extends ServiceImpl<DetailsDao, DetailsBean> imp
     @Autowired
     private DetailsDao detailsDao;
     @Override
-    public List<DetailsBean> getAll() {
-        return detailsDao.getAll();
+    public List<DetailsBean> getAll(String type) {
+        return detailsDao.getAll(type);
     }
 
     @Override
