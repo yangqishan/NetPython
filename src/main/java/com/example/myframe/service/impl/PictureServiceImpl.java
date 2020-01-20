@@ -21,12 +21,14 @@ public class PictureServiceImpl extends ServiceImpl<PictureDao, PictureBean> imp
     }
 
     @Override
-    public IPage<PictureBean> getPage(Page page) {
-        return pictureDao.getPage(page);
+    public List<PictureBean> get(String name) {
+        return pictureDao.get(name);
     }
 
     @Override
-    public PictureBean get(String name) {
-        return pictureDao.get(name);
+    public void addList(List<PictureBean> list) {
+        pictureDao.addList(list);
     }
+
+
 }

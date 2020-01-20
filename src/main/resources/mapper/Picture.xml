@@ -3,10 +3,30 @@
 <mapper namespace="com.example.myframe.dao.PictureDao">
 
     <select id="getAll" resultType="com.example.myframe.entity.PictureBean">
-
+     SELECT *from pictute
     </select>
 	<select id="get" resultType="com.example.myframe.entity.PictureBean" parameterType="String">
-
+     SELECT *from picture where name like concat('%',#{name},'%')
 	</select>
+
+
+    <insert id="addList" parameterType="java.util.List">
+        insert into picture
+        (
+        name,
+        img,
+        create_date,
+        update_date
+        )
+        values
+        <foreach collection="list" item="item" index= "index" separator =",">
+            (
+            #{item.name},
+            #{item.img},
+            now(),
+            now()
+            )
+        </foreach>
+    </insert>
 </mapper>
 

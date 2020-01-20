@@ -10,12 +10,8 @@ import java.util.List;
 
 public interface PictureService extends IService<PictureBean> {
     List<PictureBean> getAll();
-    /**
-     * 分页查询
-     * @param page
-     * @return
-     */
-    IPage<PictureBean> getPage(Page page);
 
-    PictureBean get(String name);
+    List<PictureBean> get(String name);
+
+    void addList(List<PictureBean> list);
 }

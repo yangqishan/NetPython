@@ -45,8 +45,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
-                        </button><!--//nav-toggle-->
-                    </div><!--//navbar-header-->
+                        </button>
+                    </div>
                     <div class="navbar-collapse collapse" id="navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li class="nav-item"><a href="index.html">首页</a></li>
@@ -57,314 +57,70 @@
                             <li class="nav-item"><a href="new.html">新闻</a></li>
                             <li class="nav-item"><a href="career.html">职业与薪资</a></li>
                             <li class="nav-item"><a href="star.html">明星</a></li>
-                        </ul><!--//nav-->
-                    </div><!--//navabr-collapse-->
-                </nav><!--//main-nav-->
-            </div><!--//container-->
-        </header><!--//header-->
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
         <!-- ******搜索****** -->
         <section id="signup" class="signup has-bg-color">
             <div class="container text-center">
-                <form class="signup-form" method="post" action="#">
+                <div class="signup-form" method="post">
                     <div class="form-group">
-                        <input type="email" id="semail2" name="semail2" class="form-control" placeholder="输入要搜索图片的关键词" required>
+                        <input  id="searchValue" name="semail2" class="form-control" placeholder="输入要搜索图片的关键词" required>
                     </div>
                     <button type="submit" class="btn btn-cta btn-cta-primary">查询</button>
-                </form><!--//signup-form-->
-            </div>
-        </section><!--//signup-->
-        <hr>
-        <!-- ******CONTACT MAIN****** -->
-        <section id="contact-main" class="contact-main section">
-            <div class="container text-center">
-                <h2 class="title">Get in touch</h2>
-                <p class="intro">We'd love to hear from you. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
-                
-                <div class="row">
-                    <div class="item col-md-4 col-sm-12 col-xs-12">
-                        <div class="item-inner">
-                            <div class="icon">
-                                <!--<i class="fa fa-envelope"></i>-->
-                                <span class="pe-icon pe-7s-mail-open-file"></span>
-                            </div>
-                            <div class="details">
-                                <h4>Email &amp; Twitter:</h4>
-                                <p><a href="#">support@website.com</a></p>
-                                <p><a href="https://twitter.com/3rdwave_themes" target="_blank">@3rdwave_themes</a></p>
-                            </div><!--details-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-                    <div class="item col-md-4 col-sm-12 col-xs-12">
-                        <div class="item-inner">
-                            <div class="icon">
-                                <!--<i class="fa fa-phone"></i>-->
-                                <span class="pe-icon pe-7s-phone"></span>
-                            </div>
-                            <div class="details">
-                                <h4>Call us on:</h4>
-                                <p class="phone">0800 123 456</p>
-                                <p class="day">Mon-Sat 9am-6pm (GMT)</p>
-                            </div><!--details-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-                    <div class="item col-md-4 col-sm-12 col-xs-12 last">
-                            <div class="item-inner">
-                            <div class="icon">
-                                <!--<i class="fa fa-map-marker"></i>-->
-                                <span class="pe-icon pe-7s-map-2"></span>
-                            </div>
-                            <div class="details">
-                                <h4>Find us at:</h4>
-                                <p class="address">123 Queen Square<br />Bristol, UK</p>
-                            </div><!--details-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-                </div><!--//row-->
-            </div><!--//container-->
-        </section><!--//contact-->    
-        <section class="container contact-form-section">
-            <h3 class="title text-center">Contact Form</h3>
-            <p class="intro text-center">Drop us a line lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
-            <p class="intro text-center"><a href="https://twitter.com/3rdwave_themes" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @3rdwave_themes</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
-            
-            <div class="row text-center">                
-                <div class="contact-form col-md-6 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-0 col-xs-offset-0">                            
-                    <form class="form" id="contact-form" method="post" action="#">                
-                        <div class="form-group name">
-                            <label class="sr-only" for="name">Your name</label>
-                            <input id="name" name="name" type="text" class="form-control" placeholder="Your name">
-                        </div><!--//form-group-->
-                        <div class="form-group email">
-                            <label class="sr-only" for="email">Your email</label>
-                            <input id="email" type="email" class="form-control" placeholder="Your email">
-                        </div><!--//form-group-->
-                        <div class="form-group message">
-                            <label class="sr-only" for="message">Your message</label>
-                            <textarea id="message" class="form-control" rows="8" placeholder="Your message"></textarea>
-                        </div><!--//form-group-->
-                        <button type="submit" class="btn btn-block btn-cta-primary">Send Message</button>
-                    </form><!--//form-->                 
-                </div><!--//contact-form-->
-            </div><!--//row-->
-        </section> 
-         
-        <section class="map-section">
-            <h3 class="sr-only title">Google Map</h3>
-            <div class="gmap-wrapper" id="map">
-                <!--//You need to embed your own google map below-->
-                <!--//Ref: https://support.google.com/maps/answer/144361?co=GENIE.Platform%3DDesktop&hl=en -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79444.64391671501!2d-0.21428374128957384!3d51.51972634746694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876045108e9cad3%3A0x6514817fa6d57c9!2sThe+Web+Kitchen!5e0!3m2!1sen!2suk!4v1469624353093" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div><!--//gmap-wrapper-->
-        </section><!--//map-->
-
-        <!-- ******FAQ****** -->
-        <section id="faq" class="faq section has-bg-color">
-            <div class="container">
-                <h2 class="title text-center">Frequently Asked Questions</h2>
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a data-parent="#accordion"
-                                                           data-toggle="collapse" class="panel-toggle" href="#faq1"><i class="fa fa-plus-square"></i>Can I viverra sit amet quam eget lacinia?</a></h4>
-                            </div>
-
-                            <div class="panel-collapse collapse" id="faq1">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                    accusamus terry richardson ad squid. 3 wolf moon officia
-                                    aute, non cupidatat skateboard dolor brunch. Food truck
-                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee
-                                    nulla assumenda shoreditch et. Nihil anim keffiyeh
-                                    helvetica, craft beer labore wes anderson cred nesciunt
-                                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                    Leggings occaecat craft beer farm-to-table, raw denim
-                                    aesthetic synth nesciunt you probably haven't heard of them
-                                    accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a data-parent="#accordion"
-                                                           data-toggle="collapse" class="panel-toggle" href="#faq2"><i class="fa fa-plus-square"></i>What is the ipsum dolor sit amet quam tortor?</a></h4>
-                            </div>
-
-                            <div class="panel-collapse collapse" id="faq2">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                    accusamus terry richardson ad squid. 3 wolf moon officia
-                                    aute, non cupidatat skateboard dolor brunch. Food truck
-                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee
-                                    nulla assumenda shoreditch et. Nihil anim keffiyeh
-                                    helvetica, craft beer labore wes anderson cred nesciunt
-                                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                    Leggings occaecat craft beer farm-to-table, raw denim
-                                    aesthetic synth nesciunt you probably haven't heard of them
-                                    accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div><!--//panel-->
-
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a data-parent="#accordion"
-                                                           data-toggle="collapse" class="panel-toggle" href="#faq3"><i class="fa fa-plus-square"></i>How does the morbi quam tortor work?</a></h4>
-                            </div>
-
-                            <div class="panel-collapse collapse" id="faq3">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                    accusamus terry richardson ad squid. 3 wolf moon officia
-                                    aute, non cupidatat skateboard dolor brunch. Food truck
-                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee
-                                    nulla assumenda shoreditch et. Nihil anim keffiyeh
-                                    helvetica, craft beer labore wes anderson cred nesciunt
-                                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                    Leggings occaecat craft beer farm-to-table, raw denim
-                                    aesthetic synth nesciunt you probably haven't heard of them
-                                    accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div><!--//panel-->
-
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a data-parent="#accordion"
-                                                           data-toggle="collapse" class="panel-toggle" href="#faq4"><i class="fa fa-plus-square"></i>Can I ipsum dolor sit amet nascetur ridiculus?</a></h4>
-                            </div>
-
-                            <div class="panel-collapse collapse" id="faq4">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                    accusamus terry richardson ad squid. 3 wolf moon officia
-                                    aute, non cupidatat skateboard dolor brunch. Food truck
-                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee
-                                    nulla assumenda shoreditch et. Nihil anim keffiyeh
-                                    helvetica, craft beer labore wes anderson cred nesciunt
-                                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                    Leggings occaecat craft beer farm-to-table, raw denim
-                                    aesthetic synth nesciunt you probably haven't heard of them
-                                    accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div><!--//panel-->
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a data-parent="#accordion"
-                                                           data-toggle="collapse" class="panel-toggle" href="#faq5"><i class="fa fa-plus-square"></i>Is it possible to tellus eget auctor condimentum?</a></h4>
-                            </div>
-
-                            <div class="panel-collapse collapse" id="faq5">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                    accusamus terry richardson ad squid. 3 wolf moon officia
-                                    aute, non cupidatat skateboard dolor brunch. Food truck
-                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee
-                                    nulla assumenda shoreditch et. Nihil anim keffiyeh
-                                    helvetica, craft beer labore wes anderson cred nesciunt
-                                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                    Leggings occaecat craft beer farm-to-table, raw denim
-                                    aesthetic synth nesciunt you probably haven't heard of them
-                                    accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div><!--//panel-->
-
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a data-parent="#accordion"
-                                                           data-toggle="collapse" class="panel-toggle" href="#faq6"><i class="fa fa-plus-square"></i>Would it elementum turpis semper imperdiet?</a></h4>
-                            </div>
-
-                            <div class="panel-collapse collapse" id="faq6">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                    accusamus terry richardson ad squid. 3 wolf moon officia
-                                    aute, non cupidatat skateboard dolor brunch. Food truck
-                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee
-                                    nulla assumenda shoreditch et. Nihil anim keffiyeh
-                                    helvetica, craft beer labore wes anderson cred nesciunt
-                                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                    Leggings occaecat craft beer farm-to-table, raw denim
-                                    aesthetic synth nesciunt you probably haven't heard of them
-                                    accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div><!--//panel-->
-
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a data-parent="#accordion"
-                                                           data-toggle="collapse" class="panel-toggle" href="#faq7"><i class="fa fa-plus-square"></i>How can I imperdiet lorem sem non nisl?</a></h4>
-                            </div>
-
-                            <div class="panel-collapse collapse" id="faq7">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                    accusamus terry richardson ad squid. 3 wolf moon officia
-                                    aute, non cupidatat skateboard dolor brunch. Food truck
-                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee
-                                    nulla assumenda shoreditch et. Nihil anim keffiyeh
-                                    helvetica, craft beer labore wes anderson cred nesciunt
-                                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                    Leggings occaecat craft beer farm-to-table, raw denim
-                                    aesthetic synth nesciunt you probably haven't heard of them
-                                    accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div><!--//panel-->
-
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a data-parent="#accordion"
-                                                           data-toggle="collapse" class="panel-toggle" href="#faq8"><i class="fa fa-plus-square"></i>Can I imperdiet massa ut?</a></h4>
-                            </div>
-
-                            <div class="panel-collapse collapse" id="faq8">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                    accusamus terry richardson ad squid. 3 wolf moon officia
-                                    aute, non cupidatat skateboard dolor brunch. Food truck
-                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee
-                                    nulla assumenda shoreditch et. Nihil anim keffiyeh
-                                    helvetica, craft beer labore wes anderson cred nesciunt
-                                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                                    Leggings occaecat craft beer farm-to-table, raw denim
-                                    aesthetic synth nesciunt you probably haven't heard of them
-                                    accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div><!--//panel-->
-                    </div>
-                </div><!--//row-->
-                <div class="more text-center">
-                    <h4 class="title">More questions?</h4>
-                    <a class="btn btn-cta btn-cta-secondary" href="contact.html">Get in touch</a>
                 </div>
-            </div><!--//container-->
-        </section><!--//faq-->
-    </div><!--//wrapper-->
+            </div>
+        </section>
+        <hr>
+        <!-- *****查询结果****** -->
+        <section id="picture" class="contact-main section" hidden>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="item col-md-4 col-sm-12 col-xs-12" v-for="p of picture">
+                        <div class="item-inner">
+                            <a href="#"><img class="img-responsive" v-bind:src="p.img" v-bind:alt="p.name" /></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
     
     <!-- ******FOOTER****** -->
     <div id="foot"></div>
     <script src="js/jquery.min.js"></script>
+    <script src="js/vue.js" type="text/javascript"></script>
     <script>
         $(function(){
             $("#foot").load("foot.html");
         });
+
+        //定义一个vue对象
+        var app=new Vue({
+            el:"#picture",
+            data:{
+                picture:[]
+            }
+        })
+        //模糊搜索
+        $("button").click(function () {
+            var searchValue=$("#searchValue").val();
+            $.ajax({
+                url:"picture/get",
+                type:"post",
+                dataType:"json",
+                data:{
+                    searchValue:searchValue
+                },
+                success:function (data) {
+                    app.picture=data.data
+                    $("#picture").slideDown()
+                }
+            })
+        })
     </script>
           
     <!-- Javascript -->          
