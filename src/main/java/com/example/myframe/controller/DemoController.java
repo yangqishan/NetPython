@@ -14,11 +14,11 @@ public class DemoController {
     private static Connection connection;
     private static Connection.Response response;
 
-    public static void main(String[] arg) throws Exception{
+   /* public static void main(String[] arg) throws Exception{
         Document document=getPage("http://piaofang.maoyan.com/second-box");
         //Elements table=document.getElementsByClass("dashboard-table");
         System.out.println(document);
-    }
+    }*/
     /**
      * 解析页面dom
      * @param url
